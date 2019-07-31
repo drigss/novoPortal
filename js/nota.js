@@ -3,6 +3,9 @@ var i = 0;
 var auxTotal = 0;
 
 $(document).ready(function () {
+
+    
+
     document.getElementById("btnAddRow").addEventListener('click', function () {
 
         //Criar botões
@@ -16,8 +19,8 @@ $(document).ready(function () {
         var btnExcluir = document.createElement("button");
         var exc = document.createTextNode("X");
         btnExcluir.appendChild(exc);
-        btnExcluir.setAttribute("id", "excluir");
-        btnExcluir.setAttribute("class", "btn btn-danger btn-sm");
+        btnExcluir.setAttribute("class", "btn btn-danger btn-sm excluir");
+        btnExcluir.setAttribute("data-id", i);
 
         //Registro da tabela
         var operacao = document.getElementById('operacao').value;
@@ -37,6 +40,7 @@ $(document).ready(function () {
         var table = document.getElementsByTagName('table')[0];
 
         var newRow = table.insertRow(table.rows.length);
+        newRow.setAttribute("id", "tr_"+i);
 
         var cel1 = newRow.insertCell(0);
         var cel2 = newRow.insertCell(1);
@@ -73,7 +77,7 @@ $(document).ready(function () {
                 $('#table > thead  > tr:not(:has(th))').each(function (e) {
                     var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
                     $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
-                    console.log(customerId);
+                    //console.log(customerId);
                 });
             }
 
@@ -81,10 +85,28 @@ $(document).ready(function () {
 
         i++;
 
-        console.log("valor uax: " + auxTotal);
+        // document.getElementById("btnExcluir").addEventListener("click", function () {
+
+        //     $('#table > thead  > tr:not(:has(th))').each(function (e) {
+
+        //         // $(this).find("td").eq(6).html;
+        //         $(this).find("td").parent().remove(); //Deleting TD element
+        //      //   $(this).remove();
+          
+        //         i = 0;
+        //         a = 0;
+        //         auxTotal = 0;
+      
+        //     });
+        // });
+
+        //console.log("valor uax: " + auxTotal);
     });
 });
 
+$(document).on('click', '.excluir', function(event) {
+      $("#tr_"+ $(this).attr("data-id")).remove();
+});
 
 $(document).ready(function () {
     document.getElementById("btnCalc").addEventListener("click", function () {
@@ -101,5 +123,7 @@ $(document).ready(function () {
 
     });
 });
+
+
 
 
