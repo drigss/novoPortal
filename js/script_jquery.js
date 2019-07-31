@@ -11,7 +11,4 @@ $(function(){
         $('#login').show();
     });
 
-    //pageLogin
-
- // $('#cadastro').show();
 });
