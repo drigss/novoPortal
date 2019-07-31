@@ -34,16 +34,16 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item  ">
             <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item   ">
+          <li class="nav-item  active">
             <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
-              <p>Cadastro Notas</p>
+              <p>Cadastros de Notas</p>
             </a>
           </li>
           <!-- your sidebar here -->
@@ -90,21 +90,20 @@
 
           <!-- your content here -->
 
-
+          <h3>Cadastro de Notas</h3>
 
           <div class="card">
             <div class="card-body">
 
               <form action="_inserir_corretora.php" method="post" style="margin: 20px 20px 0px 20px">
 
-
                 <div class="row">
-                  <div class="col">
+                  <div class="col-md-4">
                     <label>Número da Nota</label>
                     <input type="text" class="form-control" name="nNota" id="nNota"
-                      placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
+                      placeholder="Valor Total das Compras" value="33333333" autocomplete="off">
                   </div>
-                  <div class="col">
+                  <div class="col-md-4">
                     <label>Data da Nota</label>
                     <input type="date" class="form-control" name="dtNota" id="dtNota"
                       placeholder="Valor Total das Compras" autocomplete="off">
@@ -112,33 +111,33 @@
                 </div>
 
                 <div class="row">
-                  <div class="col">
+                  <div class="col-md-2">
                     <label>Total Compras</label>
                     <input type="text" class="form-control" name="total_compra" id="totalCompra"
                       placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
                   </div>
-                  <div class="col">
+                  <div class="col-md-2">
                     <label>Total Vendas</label>
                     <input type="text" class="form-control" name="total_venda" id="totalVenda"
                       placeholder="Valor Total das Vendas" value="111.00" autocomplete="off">
                   </div>
-                  <div class="col">
+                  <div class="col-md-2">
                     <label>Liquidação</label>
                     <input type="text" class="form-control" name="txLiquidacao" id="txLiquidacao"
                       placeholder="Valor da Taxa de Liquidação" value="0.05" autocomplete="off">
                   </div>
-                  <div class="col">
+                  <div class="col-md-2">
                     <label>Registro</label>
                     <input type="text" class="form-control" name="txRegistro" id="txRegistro"
                       placeholder="Valor da Taxa de Registro" value="0.04" autocomplete="off">
                   </div>
-                  <div class="col">
+                  <div class="col-md-2">
                     <label>Emolumento</label>
                     <input type="text" class="form-control" name="txEmolumento" id="txEmolumento"
                       placeholder="Valor do Emolumento" value="0.07" autocomplete="off">
                   </div>
 
-                  <div class="col">
+                  <div class="col-md-2">
                     <label>IR</label>
                     <input type="text" class="form-control" name="ir" id="ir" placeholder="Valor do I.R.R.F." value="3"
                       autocomplete="off">
@@ -169,126 +168,127 @@
             <div class="card-body">
 
 
+              <h5>
+                Negócios Realizados
+                <small class="text-muted"> - Inserira as operações da Nota de Corretagem</small>
+              </h5>
 
+              <h5><small> </small></h5>
+              <hr>
+              <div style="margin: 20px 20px 0px 20px">
+                <div class="form-row">
+                  <div class="col-md-2">
+                    <label>Operação</label>
+                    <select class="form-control" style="color: orange" name="operacao" id="operacao">
+                      <option selected>Selecione</option>
+                      <option>Compra</option>
+                      <option>Venda</option>
+                    </select>
+                  </div>
 
-<h5>Negócios Realizados<small> Inserira as operações da Nota de Corretagem</small></h5>
-                    <hr>
-                    <div style="margin: 20px 20px 0px 20px">
-                        <div class="form-row" id="Ticker">
-                            <div class="col">
+                  <div class="col-md-2">
+                    <label>Ticker</label>
+                    <input type="text" class="form-control" name="ticker" id="ticker" placeholder="Digite o Ticker"
+                      autocomplete="off">
+                  </div>
 
-                                <label>Operação</label>
-                                <select class="form-control" name="operacao" id="operacao">
-                                    <option selected>Selecione</option>
-                                    <option>Compra</option>
-                                    <option>Venda</option>
-                                </select>
-                            </div>
+                  <div class="col-md-2">
+                    <label>Papel</label>
+                    <select class="form-control" style="color: orange" name="papel" id="papel">
+                      <option selected>Selecione</option>
+                      <option>Opção</option>
+                      <option>Ação</option>
+                      <option>ETF</option>
+                    </select>
+                  </div>
 
-                            <div class="col">
-                                <label>Ticker</label>
-                                <input type="text" class="form-control" name="ticker" id="ticker"
-                                    placeholder="Digite o Ticker da ação" autocomplete="off">
-                            </div>
+                  <div class="col-md-2">
+                    <label>QTD</label>
+                    <input type="number" class="form-control" name="qtd" id="qtd" placeholder="Digite a quantidade"
+                      value="100" autocomplete="off">
+                  </div>
 
-                            <div class="col">
-                                <label>Papel</label>
-                                <select class="form-control" name="papel" id="papel">
-                                    <option selected>Opção</option>
-                                    <option>Ação</option>
-                                    <option>ETF</option>
-                                </select>
-                            </div>
+                  <div class="col-md-2">
+                    <label>PU</label>
+                    <input type="text" class="form-control" name="pu" id="pu" placeholder="Digite o preço unitário"
+                      value="1.11" autocomplete="off">
+                  </div>
 
-                            <div class="col">
-                                <label>QTD</label>
-                                <input type="number" class="form-control" name="qtd" id="qtd"
-                                    placeholder="Digite a quantidade" value="100" autocomplete="off">
-                            </div>
-
-                            <div class="col">
-                                <label>PU</label>
-                                <input type="text" class="form-control" name="pu" id="pu"
-                                    placeholder="Digite o preço unitário" value="1.11" autocomplete="off">
-                            </div>
-
-                            <div class="col1">
-                                <input class="btn btn-info btn-sm" type="button" nome="btnAddRow" id="btnAddRow"
-                                    value="ADD">
-                            </div>
-
-                        </div>
-                    </div>
-                    <br>
-
-                    <!-- Tabela -->
-                    <div class="table-responsive" style="margin-top:1rem">
-                        <table class="table table-sm" id="table">
-                            <thead>
-                                <tr class="bg-dark" style="color:azure">
-                                    <th scope="col">Operação</th>
-                                    <th scope="col">Ticker</th>
-                                    <th scope="col">Papel</th>
-                                    <th scope="col">QTD</th>
-                                    <th scope="col">PU</th>
-                                    <th scope="col">PT</th>
-                                    <th scope="col">Liq.</th>
-                                    <th scope="col">Reg.</th>
-                                    <th scope="col">Emo.</th>
-                                    <th scope="col">IR</th>
-                                    <th scope="col" style="text-align: right">Editar</th>
-                                    <th scope="col" style="text-align: left">Excluir</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <!-- Tabela -->
-
-
-                    <div style="text-align: right; margin-top:1px">
-                        <input class="btn btn-info btn-sm" type="button" nome="btnCalcTx" id="btnCalcTx"
-                            value="Calcular Taxas">
-                        <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
-                        <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>
-                    </div>
-
+                  <div class="col1">
+                    <input class="btn btn-primary btn-sm" type="button" nome="btnAddRow" id="btnAddRow" value="ADD">
+                  </div>
 
                 </div>
+              </div>
+              <br>
+
+              <!-- Tabela -->
+              <div class="table-responsive" style="margin-top:1rem">
+                <table class="table table-sm" id="table">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th scope="col">Operação</th>
+                      <th scope="col">Ticker</th>
+                      <th scope="col">Papel</th>
+                      <th scope="col">QTD</th>
+                      <th scope="col">PU</th>
+                      <th scope="col">PT</th>
+                      <th scope="col">Liq.</th>
+                      <th scope="col">Reg.</th>
+                      <th scope="col">Emo.</th>
+                      <th scope="col">IR</th>
+                      <th scope="col" style="text-align: right">Editar</th>
+                      <th scope="col" style="text-align: left">Excluir</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <!-- Tabela -->
+
+
+              <div style="text-align: right; margin-top:1px">
+                <input class="btn btn-info btn-sm" type="button" nome="btnCalcTx" id="btnCalcTx" value="Calcular Taxas">
+                <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
+                <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>
+              </div>
+
+
+            </div>
 
 
 
 
 
-            </div>d kjfklsdjkfljasd
-          </div>sjfkljskjfkldsjfklsd
-
-
+          </div>
         </div>
+
 
       </div>
 
-
-
-
-
-
-
-
-
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-
-              </li>
-            </ul>
-          </nav>
-
-          <!-- your footer here -->
-        </div>
-      </footer>
     </div>
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="float-left">
+          <ul>
+            <li>
+
+            </li>
+          </ul>
+        </nav>
+
+        <!-- your footer here -->
+      </div>
+    </footer>
+  </div>
   </div>
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js"></script>

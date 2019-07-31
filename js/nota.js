@@ -7,14 +7,14 @@ $(document).ready(function () {
 
         //Criar botões
         var btnEditar = document.createElement("button");
-        var edit = document.createTextNode("Editar");
+        var edit = document.createTextNode("!");
         btnEditar.appendChild(edit);
         btnEditar.setAttribute("style", "float: right");
         btnEditar.setAttribute("id", "btnEditar");
-        btnEditar.setAttribute("class", "btn btn-info btn-sm");
+        btnEditar.setAttribute("class", "btn btn-warning btn-sm");
 
         var btnExcluir = document.createElement("button");
-        var exc = document.createTextNode("Excluir");
+        var exc = document.createTextNode("X");
         btnExcluir.appendChild(exc);
         btnExcluir.setAttribute("id", "excluir");
         btnExcluir.setAttribute("class", "btn btn-danger btn-sm");
