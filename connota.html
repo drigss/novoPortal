@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <title>Oi, :)</title>
+  <title>Consultar Notas</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -14,8 +14,7 @@
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
 
-  <script src="js/jquery.js"></script>
-  <script src="js/nota.js"></script>
+
 
 </head>
 
@@ -34,7 +33,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+          <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
@@ -55,16 +54,12 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Menu</a>
           </div>
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">teste</a>
-          </div>
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar">teste</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
@@ -85,190 +80,124 @@
       </nav>
       <!-- End Navbar -->
 
+
+
       <div class="content">
         <div class="container-fluid">
 
-          <!-- your content here -->
 
-          <h3>Cadastro de Notas</h3>
 
-          <div class="card">
-            <div class="card-body">
-
-              <form action="_inserir_cadnota.php" method="post" style="margin: 20px 20px 0px 20px">
-
-                <div class="row">
-                  <div class="col-md-4">
-                    <label>Número da Nota</label>
-                    <input type="text" class="form-control" name="nNota" id="nNota"
-                      placeholder="Valor Total das Compras" value="33333333" autocomplete="off">
-                  </div>
-                  <div class="col-md-4">
-                    <label>Data da Nota</label>
-                    <input type="date" class="form-control" name="dtNota" id="dtNota"
-                      placeholder="Valor Total das Compras" autocomplete="off">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-2">
-                    <label>Total Compras</label>
-                    <input type="text" class="form-control" name="tCompra" id="tCompra"
-                      placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Total Vendas</label>
-                    <input type="text" class="form-control" name="tVenda" id="tVenda"
-                      placeholder="Valor Total das Vendas" value="111.00" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Liquidação</label>
-                    <input type="text" class="form-control" name="txLiquidacao" id="txLiquidacao"
-                      placeholder="Valor da Taxa de Liquidação" value="0.05" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Registro</label>
-                    <input type="text" class="form-control" name="txRegistro" id="txRegistro"
-                      placeholder="Valor da Taxa de Registro" value="0.04" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Emolumento</label>
-                    <input type="text" class="form-control" name="txEmolumento" id="txEmolumento"
-                      placeholder="Valor do Emolumento" value="0.07" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>IR</label>
-                    <input type="text" class="form-control" name="ir" id="ir" placeholder="Valor do I.R.R.F." value="3"
-                      autocomplete="off">
-                  </div>
-                </div>
-                <div class="col" style="margin: 20px 0 40px 20px">
-                  <h6 style="color: red">
-                    Total Líquido
-                    <small class="text-muted">Conferir com a nota de corretagem.</small>
-                    <input type="text" class="form-control" style="width: 100px" name="tLiquido" id="tLiquido" >
-                  </h6>
-                </div>
-            </div>
-
-            <div style="text-align: right; margin: 0 15px 20px 0">
-              <input class="btn btn-info btn-sm" type="button" value="Calcular" id="btnCalc">
-              <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
-              <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>
-            </div>
-
-            </form>
-
-          </div>
 
 
           <div class="card">
             <div class="card-body">
 
 
-              <h5>
-                Negócios Realizados
-                <small class="text-muted"> - Inserira as operações da Nota de Corretagem</small>
-              </h5>
-
-              <h5><small> </small></h5>
-              <hr>
-              <div style="margin: 20px 20px 0px 20px">
+              <form>
                 <div class="form-row">
-                  <div class="col-md-2">
-                    <label>Operação</label>
-                    <select class="form-control" style="color: orange" name="operacao" id="operacao">
-                      <option selected>Selecione</option>
-                      <option>Compra</option>
-                      <option>Venda</option>
+
+                  <div class="form-group col-md-3">
+                    <label>Buscar por:</label>
+                    <select class="form-control" style="color: orange">
+                      <option>Selecione</option>
+                      <option>Nome</option>
+                      <option>Numero</option>
+                      <option>4</option>
+                      <option>5</option>
                     </select>
                   </div>
-
-                  <div class="col-md-2">
-                    <label>Ticker</label>
-                    <input type="text" class="form-control" name="ticker" id="ticker" placeholder="Digite o Ticker"
-                      autocomplete="off">
+                  <div class="form-group col-md-5">
+                    <label>Descrição</label>
+                    <input type="text" class="form-control" placeholder="Digite a busca">
                   </div>
-
-                  <div class="col-md-2">
-                    <label>Papel</label>
-                    <select class="form-control" style="color: orange" name="papel" id="papel">
-                      <option selected>Selecione</option>
-                      <option>Opção</option>
-                      <option>Ação</option>
-                      <option>ETF</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-2">
-                    <label>QTD</label>
-                    <input type="number" class="form-control" name="qtd" id="qtd" placeholder="Digite a quantidade"
-                      value="100" autocomplete="off">
-                  </div>
-
-                  <div class="col-md-2">
-                    <label>PU</label>
-                    <input type="text" class="form-control" name="pu" id="pu" placeholder="Digite o preço unitário"
-                      value="1.11" autocomplete="off">
-                  </div>
-
-                  <div class="col1">
-                    <input class="btn btn-primary btn-sm" type="button" nome="btnAddRow" id="btnAddRow" value="ADD">
-                  </div>
-
-                </div>
-              </div>
-              <br>
-
-              <!-- Tabela -->
-              <div class="card" style="background-color: #00000094">
-                <div class="card-body">
-
-                  <div class="table-responsive" style="margin-top:1rem">
-                    <table class="table table-sm" id="table">
-                      <thead class=" text-primary">
-                        <tr>
-                          <th scope="col">Operação</th>
-                          <th scope="col">Ticker</th>
-                          <th scope="col">Papel</th>
-                          <th scope="col">QTD</th>
-                          <th scope="col">PU</th>
-                          <th scope="col">PT</th>
-                          <th scope="col">Liq.</th>
-                          <th scope="col">Reg.</th>
-                          <th scope="col">Emo.</th>
-                          <th scope="col">IR</th>
-                          <th scope="col" style="text-align: right">Editar</th>
-                          <th scope="col" style="text-align: left">Excluir</th>
-                        </tr>
-                      </thead>
-                    </table>
+                  <div class="form-group" style="margin-bottom: 20px">
+                    <button type="submit" class="btn btn-info btn-sm">Consultar</button>
                   </div>
                 </div>
-              </div>
+              </form>
+
+
+
+
+
+
               <!-- Tabela -->
+              <div>
+                <table class="table">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th scope="col">Corretora</th>
+                      <th scope="col">CNPJ</th>
+                      <th scope="col">Banco</th>
+                      <th scope="col">Agencia</th>
+                      <th scope="col">Conta</th>
+                      <th scope="col" style="text-align: right">Editar</th>
+                      <th scope="col" style="text-align: left">Excluir</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="tableTr">
+                    <tr></tr>
+
+                  </tbody>
 
 
-              <div style="text-align: right; margin-top:1px">
-                <input class="btn btn-info btn-sm" type="button" nome="btnCalcTx" id="btnCalcTx" value="Calcular Taxas">
-                <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
-                <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>
+                  <?php
+  
+                    include 'conexao.php';
+  
+                    $sql = "SELECT * FROM `corretora`";
+                    $busca = mysqli_query($conexao, $sql);
+  
+                    while ($array = mysqli_fetch_array($busca)) {
+                      $corretora_id = $array['corretora_id'];
+                      $nome = $array['nome'];
+                      $cnpj = $array['cnpj'];
+                      $banco = $array['banco'];
+                      $agencia = $array['agencia'];
+                      $conta = $array['conta'];
+  
+                      ?>
+                  <tr class="tableTr">
+
+                    <td><?php echo $nome ?></td>
+                    <td><?php echo $cnpj ?></td>
+                    <td><?php echo $banco ?></td>
+                    <td><?php echo $agencia ?></td>
+                    <td><?php echo $conta ?></td>
+
+                    <td style="text-align: right"><a class="btn btn-warning btn-sm" style="color:#fff"
+                        href="editar_corretora.php?id=<?php echo $corretora_id ?>" role="button"
+                        style="text-align: right">!</a></td>
+                    <td style="text-align: left"> <a class="btn btn-danger btn-sm" style="color:#fff"
+                        href="_deletar_codcorretora.php?id=<?php echo $corretora_id ?>" role="button">X</a></td>
+
+                  </tr>
+
+
               </div>
-
-
             </div>
 
 
+            <?php   } ?>
+
+            </table>
+
+
+            <!-- Tabela -->
 
 
 
           </div>
+
+
         </div>
-
-
       </div>
+
+
 
     </div>
+  </div>
 
 
 
@@ -278,19 +207,13 @@
 
 
 
-    <footer class="footer">
-      <div class="container-fluid">
-        <nav class="float-left">
-          <ul>
-            <li>
 
-            </li>
-          </ul>
-        </nav>
 
-        <!-- your footer here -->
-      </div>
-    </footer>
+
+
+
+
+
   </div>
   </div>
   <!--   Core JS Files   -->
@@ -300,7 +223,7 @@
   <script src="https://unpkg.com/default-passive-events"></script>
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Place this tag in your head or just before your close body tag. 
-  <script async defer src="https://buttons.github.io/buttons.js"></script>-->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>-->
   <!-- Chartist JS -->
   <script src="./assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->

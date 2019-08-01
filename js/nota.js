@@ -111,15 +111,15 @@ $(document).on('click', '.excluir', function(event) {
 $(document).ready(function () {
     document.getElementById("btnCalc").addEventListener("click", function () {
 
-        var vTotalCompra = totalCompra.value;
-        var vTotalVenda = totalVenda.value;
+        var vTotalCompra = tCompra.value;
+        var vTotalVenda = tVenda.value;
         var vTxLiquidacao = txLiquidacao.value;
         var vTxRegistro = txRegistro.value;
         var vTxEmolumento = txEmolumento.value;
 
         var total = parseFloat(vTotalVenda) - parseFloat(vTotalCompra) - parseFloat(vTxLiquidacao) - parseFloat(vTxRegistro) - parseFloat(vTxEmolumento);
 
-        document.getElementById("valor").value = (total);
+        document.getElementById("tLiquido").value = (total);
 
     });
 });

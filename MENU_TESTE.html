@@ -14,8 +14,29 @@
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
 
-  <script src="js/jquery.js"></script>
-  <script src="js/nota.js"></script>
+  <!-- <style type="text/css" media="screen">
+    #navbar li,
+    #navbar2 li {
+      display: inline;
+      list-style-type: none;
+      padding-right: 20px;
+    }
+  </style> -->
+
+  <script type="text/javascript">
+    function toggle(id, id2) {
+      var n = document.getElementById(id);
+      if (n.style.display != 'none') {
+        n.style.display = 'none';
+        document.getElementById(id2).setAttribute('aria-expanded', 'false');
+      }
+      else {
+        n.style.display = '';
+        document.getElementById(id2).setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+
 
 </head>
 
@@ -34,19 +55,38 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+          <li class="nav-item active">
             <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item  active">
-            <a class="nav-link" href="javascript:void(0)">
+        </ul>
+
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" id="TLink1" onclick="toggle('navbar', 'TLink1')">
               <i class="material-icons">dashboard</i>
-              <p>Cadastros de Notas</p>
+              <p>Cadastrar Corretoras</p>
             </a>
           </li>
-          <!-- your sidebar here -->
+          <ul  id="navbar">
+            <li><a href="Pesquisar Corretora">Pesquisar Corretora</a></li>
+            <li><a href="http://example.com/target2.html">Link 2</a></li>
+          </ul>
+        </ul>
+
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" id="TLink2" onclick="toggle('navbar1', 'TLink2')">
+              <i class="material-icons">dashboard</i>
+              <p>Cadastrar Corretoras</p>
+            </a>
+          </li>
+          <ul  id="navbar1">
+            <li><a href="Pesquisar Corretora">Pesquisar Corretora</a></li>
+            <li><a href="http://example.com/target2.html">Link 2</a></li>
+          </ul>
         </ul>
       </div>
     </div>
@@ -55,16 +95,12 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Menu</a>
           </div>
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">teste</a>
-          </div>
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar">teste</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
@@ -85,213 +121,51 @@
       </nav>
       <!-- End Navbar -->
 
+
+
       <div class="content">
         <div class="container-fluid">
 
-          <!-- your content here -->
 
-          <h3>Cadastro de Notas</h3>
 
-          <div class="card">
-            <div class="card-body">
-
-              <form action="_inserir_cadnota.php" method="post" style="margin: 20px 20px 0px 20px">
-
-                <div class="row">
-                  <div class="col-md-4">
-                    <label>Número da Nota</label>
-                    <input type="text" class="form-control" name="nNota" id="nNota"
-                      placeholder="Valor Total das Compras" value="33333333" autocomplete="off">
-                  </div>
-                  <div class="col-md-4">
-                    <label>Data da Nota</label>
-                    <input type="date" class="form-control" name="dtNota" id="dtNota"
-                      placeholder="Valor Total das Compras" autocomplete="off">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-2">
-                    <label>Total Compras</label>
-                    <input type="text" class="form-control" name="tCompra" id="tCompra"
-                      placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Total Vendas</label>
-                    <input type="text" class="form-control" name="tVenda" id="tVenda"
-                      placeholder="Valor Total das Vendas" value="111.00" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Liquidação</label>
-                    <input type="text" class="form-control" name="txLiquidacao" id="txLiquidacao"
-                      placeholder="Valor da Taxa de Liquidação" value="0.05" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Registro</label>
-                    <input type="text" class="form-control" name="txRegistro" id="txRegistro"
-                      placeholder="Valor da Taxa de Registro" value="0.04" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>Emolumento</label>
-                    <input type="text" class="form-control" name="txEmolumento" id="txEmolumento"
-                      placeholder="Valor do Emolumento" value="0.07" autocomplete="off">
-                  </div>
-                  <div class="col-md-2">
-                    <label>IR</label>
-                    <input type="text" class="form-control" name="ir" id="ir" placeholder="Valor do I.R.R.F." value="3"
-                      autocomplete="off">
-                  </div>
-                </div>
-                <div class="col" style="margin: 20px 0 40px 20px">
-                  <h6 style="color: red">
-                    Total Líquido
-                    <small class="text-muted">Conferir com a nota de corretagem.</small>
-                    <input type="text" class="form-control" style="width: 100px" name="tLiquido" id="tLiquido" >
-                  </h6>
-                </div>
-            </div>
-
-            <div style="text-align: right; margin: 0 15px 20px 0">
-              <input class="btn btn-info btn-sm" type="button" value="Calcular" id="btnCalc">
-              <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
-              <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>
-            </div>
-
-            </form>
-
-          </div>
 
 
           <div class="card">
             <div class="card-body">
 
-
-              <h5>
-                Negócios Realizados
-                <small class="text-muted"> - Inserira as operações da Nota de Corretagem</small>
-              </h5>
-
-              <h5><small> </small></h5>
-              <hr>
-              <div style="margin: 20px 20px 0px 20px">
-                <div class="form-row">
-                  <div class="col-md-2">
-                    <label>Operação</label>
-                    <select class="form-control" style="color: orange" name="operacao" id="operacao">
-                      <option selected>Selecione</option>
-                      <option>Compra</option>
-                      <option>Venda</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-2">
-                    <label>Ticker</label>
-                    <input type="text" class="form-control" name="ticker" id="ticker" placeholder="Digite o Ticker"
-                      autocomplete="off">
-                  </div>
-
-                  <div class="col-md-2">
-                    <label>Papel</label>
-                    <select class="form-control" style="color: orange" name="papel" id="papel">
-                      <option selected>Selecione</option>
-                      <option>Opção</option>
-                      <option>Ação</option>
-                      <option>ETF</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-2">
-                    <label>QTD</label>
-                    <input type="number" class="form-control" name="qtd" id="qtd" placeholder="Digite a quantidade"
-                      value="100" autocomplete="off">
-                  </div>
-
-                  <div class="col-md-2">
-                    <label>PU</label>
-                    <input type="text" class="form-control" name="pu" id="pu" placeholder="Digite o preço unitário"
-                      value="1.11" autocomplete="off">
-                  </div>
-
-                  <div class="col1">
-                    <input class="btn btn-primary btn-sm" type="button" nome="btnAddRow" id="btnAddRow" value="ADD">
-                  </div>
-
-                </div>
-              </div>
-              <br>
-
-              <!-- Tabela -->
-              <div class="card" style="background-color: #00000094">
-                <div class="card-body">
-
-                  <div class="table-responsive" style="margin-top:1rem">
-                    <table class="table table-sm" id="table">
-                      <thead class=" text-primary">
-                        <tr>
-                          <th scope="col">Operação</th>
-                          <th scope="col">Ticker</th>
-                          <th scope="col">Papel</th>
-                          <th scope="col">QTD</th>
-                          <th scope="col">PU</th>
-                          <th scope="col">PT</th>
-                          <th scope="col">Liq.</th>
-                          <th scope="col">Reg.</th>
-                          <th scope="col">Emo.</th>
-                          <th scope="col">IR</th>
-                          <th scope="col" style="text-align: right">Editar</th>
-                          <th scope="col" style="text-align: left">Excluir</th>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <!-- Tabela -->
-
-
-              <div style="text-align: right; margin-top:1px">
-                <input class="btn btn-info btn-sm" type="button" nome="btnCalcTx" id="btnCalcTx" value="Calcular Taxas">
-                <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
-                <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>
-              </div>
-
+              <a aria-expanded="true" id="TLink1" href="#" onclick="toggle('navbar', 'TLink11')">Toggle Navigation
+                Bar</a>
+              <ul style="" id="navbar1">
+                <li><a href="http://example.com/target1.html">Link 1</a></li>
+                <li><a href="http://example.com/target2.html">Link 2</a></li>
+                <li><a href="http://example.com/target3.html">Link 3</a></li>
+                <li><a href="http://example.com/target4.html">Link 4</a></li>
+              </ul>
 
             </div>
-
-
-
-
-
           </div>
+
+
+
+
+
         </div>
-
-
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
-
-
-
-
-
-
-
-
-
-    <footer class="footer">
-      <div class="container-fluid">
-        <nav class="float-left">
-          <ul>
-            <li>
-
-            </li>
-          </ul>
-        </nav>
-
-        <!-- your footer here -->
-      </div>
-    </footer>
-  </div>
   </div>
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js"></script>
@@ -300,7 +174,7 @@
   <script src="https://unpkg.com/default-passive-events"></script>
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Place this tag in your head or just before your close body tag. 
-  <script async defer src="https://buttons.github.io/buttons.js"></script>-->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>-->
   <!-- Chartist JS -->
   <script src="./assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
