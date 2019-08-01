@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using aria-expanded</title>
+
+<style type="text/css" media="screen">
+#navbar li, #navbar2 li {
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+</style>
+
+  <script type="text/javascript">
+  function toggle(id, id2) {
+    var n = document.getElementById(id);
+	if (n.style.display != 'none') 
+	  {
+	  n.style.display = 'none';
+      document.getElementById(id2).setAttribute('aria-expanded', 'false');
+  }
+  else
+  {
+  n.style.display = '';
+  document.getElementById(id2).setAttribute('aria-expanded', 'true');
+	  }
+  }
+  </script>
+  <link title="teststyle" rel="stylesheet" href="../../../style/teststyle.css" type="text/css" />
+</head>
+
+<body>
+  <a aria-expanded="true" id="TLink1" href="#" onclick="toggle('navbar', 'TLink1')">Toggle Navigation Bar</a>
+  <ul style="" id="navbar">
+  <li><a href="http://example.com/target1.html">Link 1</a></li>
+  <li><a href="http://example.com/target2.html">Link 2</a></li>
+  <li><a href="http://example.com/target3.html">Link 3</a></li>
+  <li><a href="http://example.com/target4.html">Link 4</a></li>
+  </ul>
+
+<p>Here is some content below the collapsible section.</p>
+</body>
+</html>

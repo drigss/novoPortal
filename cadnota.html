@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <title>Hello, world!</title>
+  <title>Oi, :)</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -28,7 +28,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
           Drigs Dias
         </a>
       </div>
@@ -95,7 +95,7 @@
           <div class="card">
             <div class="card-body">
 
-              <form action="_inserir_corretora.php" method="post" style="margin: 20px 20px 0px 20px">
+              <form action="_inserir_cadnota.php" method="post" style="margin: 20px 20px 0px 20px">
 
                 <div class="row">
                   <div class="col-md-4">
@@ -113,12 +113,12 @@
                 <div class="row">
                   <div class="col-md-2">
                     <label>Total Compras</label>
-                    <input type="text" class="form-control" name="total_compra" id="totalCompra"
+                    <input type="text" class="form-control" name="tCompra" id="tCompra"
                       placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
                   </div>
                   <div class="col-md-2">
                     <label>Total Vendas</label>
-                    <input type="text" class="form-control" name="total_venda" id="totalVenda"
+                    <input type="text" class="form-control" name="tVenda" id="tVenda"
                       placeholder="Valor Total das Vendas" value="111.00" autocomplete="off">
                   </div>
                   <div class="col-md-2">
@@ -136,24 +136,22 @@
                     <input type="text" class="form-control" name="txEmolumento" id="txEmolumento"
                       placeholder="Valor do Emolumento" value="0.07" autocomplete="off">
                   </div>
-
                   <div class="col-md-2">
                     <label>IR</label>
                     <input type="text" class="form-control" name="ir" id="ir" placeholder="Valor do I.R.R.F." value="3"
                       autocomplete="off">
                   </div>
                 </div>
+                <div class="col" style="margin: 20px 0 40px 20px">
+                  <h6 style="color: red">
+                    Total Líquido
+                    <small class="text-muted">Conferir com a nota de corretagem.</small>
+                    <input type="text" class="form-control" style="width: 100px" name="tLiquido" id="tLiquido" >
+                  </h6>
+                </div>
             </div>
 
-            <div class="col" style="margin: 20px 0 40px 20px">
-              <h6 style="color: red">
-                Total Líquido
-                <small class="text-muted">Conferir com a nota de corretagem.</small>
-                <input type="text" style="width: 75px" class="form-control" id="valor" disabled>
-              </h6>
-            </div>
-
-            <div style="text-align: right; margin: 20px 15px 20px 0">
+            <div style="text-align: right; margin: 0 15px 20px 0">
               <input class="btn btn-info btn-sm" type="button" value="Calcular" id="btnCalc">
               <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
               <a href="index.html" role="button" class="btn btn-danger btn-sm">Voltar</a>

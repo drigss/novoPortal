@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-  <title>Hello, world!</title>
+  <title>Consultar Notas</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+
+
+
 </head>
 
 <body class="dark-edition">
@@ -24,16 +27,22 @@
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
           Drigs Dias
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item  active">
+            <a class="nav-link" href="javascript:void(0)">
+              <i class="material-icons">dashboard</i>
+              <p>Cadastros de Notas</p>
             </a>
           </li>
           <!-- your sidebar here -->
@@ -45,12 +54,12 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Menu</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar">teste</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
@@ -70,91 +79,53 @@
         </div>
       </nav>
       <!-- End Navbar -->
+
+
+
       <div class="content">
         <div class="container-fluid">
-          <!-- your content here -->
 
 
 
 
 
-          <h3>CADASTRO DE CORRETORAS</h3>
-          <form action="_inserir_cadcorretora.php" method="post" style="margin-top:20px">
+          <div class="card">
+            <div class="card-body">
 
 
-            <div class="card">
-              <div class="card-body">
+              <form>
+                <div class="form-row">
 
-                <h4>Corretora<small class="text-muted">&nbsp;&nbsp;Dados da corretora e informações bancárias</small>
-                </h4>
-
-                <hr>
-                <div class="boxCad">
-
-                  <div style="margin: 20px 20px 0px 20px">
-                    <div class="form-row">
-                      <div class="form-group col-md-3 ">
-                        <label>Corretora</label>
-                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome da Corretora"
-                          autocomplete="off">
-                      </div>
-
-                      <div class="form-group col-md-3">
-                        <label>CNPJ</label>
-                        <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ da Corretora"
-                          autocomplete="off">
-                      </div>
-                    </div>
-
-                    <div style="margin: 7px 0px 0px 0px">
-                      <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <label>Banco</label>
-                          <input type="number" class="form-control" name="banco" id="banco"
-                            placeholder="Número do Banco" autocomplete="off">
-                        </div>
-
-                        <div class="form-group col-md-4">
-                          <label>Agência</label>
-                          <input type="number" class="form-control" name="agencia" id="agencia"
-                            placeholder="Número da Agência" autocomplete="off">
-                        </div>
-
-                        <div class="form-group col-md-4">
-                          <label>Conta</label>
-                          <input type="number" class="form-control" name="conta" id="conta"
-                            placeholder="Número da Conta" autocomplete="off">
-                        </div>
-
-                        <div class="form-group col" style="text-align: right; margin: 20px 0px 0px 0">
-                          <input class="btn btn-primary btn-sm" value="Cadastrar" type="submit">
-                        </div>
-                      </div>
-                    </div>
-
-                    <br>
-
-
-
-
-
-
-                    <!-- Box conteúdo -->
-
-
+                  <div class="form-group col-md-3">
+                    <label>Buscar por:</label>
+                    <select class="form-control" style="color: orange">
+                      <option>Selecione</option>
+                      <option>Nome</option>
+                      <option>Numero</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label>Descrição</label>
+                    <input type="text" class="form-control" placeholder="Digite a busca">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 20px">
+                    <button type="submit" class="btn btn-info btn-sm">Consultar</button>
                   </div>
                 </div>
-              </div>
+              </form>
+
+
+
 
 
 
               <!-- Tabela -->
-              <div >
+              <div>
                 <table class="table">
-                  <thead class="text-primary">
+                  <thead class=" text-primary">
                     <tr>
-                      <th scope="col"></th>
-                      <th scope="col"></th>
                       <th scope="col">Corretora</th>
                       <th scope="col">CNPJ</th>
                       <th scope="col">Banco</th>
@@ -172,25 +143,23 @@
 
 
                   <?php
-
-                include 'conexao.php';
-
-                $sql = "SELECT * FROM `corretora`";
-                $busca = mysqli_query($conexao, $sql);
-
-                while ($array = mysqli_fetch_array($busca)) {
-                  $corretora_id = $array['corretora_id'];
-                  $nome = $array['nome'];
-                  $cnpj = $array['cnpj'];
-                  $banco = $array['banco'];
-                  $agencia = $array['agencia'];
-                  $conta = $array['conta'];
-
-                  ?>
+  
+                    include 'conexao.php';
+  
+                    $sql = "SELECT * FROM `corretora`";
+                    $busca = mysqli_query($conexao, $sql);
+  
+                    while ($array = mysqli_fetch_array($busca)) {
+                      $corretora_id = $array['corretora_id'];
+                      $nome = $array['nome'];
+                      $cnpj = $array['cnpj'];
+                      $banco = $array['banco'];
+                      $agencia = $array['agencia'];
+                      $conta = $array['conta'];
+  
+                      ?>
                   <tr class="tableTr">
 
-                    <td></td>
-                    <td></td>
                     <td><?php echo $nome ?></td>
                     <td><?php echo $cnpj ?></td>
                     <td><?php echo $banco ?></td>
@@ -207,42 +176,54 @@
 
 
               </div>
-
-
-              <?php   } ?>
-
-              </table>
             </div>
+
+
+            <?php   } ?>
+
+            </table>
+
 
             <!-- Tabela -->
 
 
-          </form>
 
-
-
-
-
-
+          </div>
 
 
         </div>
       </div>
+
+
 
     </div>
   </div>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </div>
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js"></script>
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="https://unpkg.com/default-passive-events"></script>
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+  <!-- Place this tag in your head or just before your close body tag. 
+      <script async defer src="https://buttons.github.io/buttons.js"></script>-->
   <!-- Chartist JS -->
   <script src="./assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
