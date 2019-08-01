@@ -3,9 +3,6 @@ var i = 0;
 var auxTotal = 0;
 
 $(document).ready(function () {
-
-    
-
     document.getElementById("btnAddRow").addEventListener('click', function () {
 
         //Criar botões
@@ -40,7 +37,7 @@ $(document).ready(function () {
         var table = document.getElementsByTagName('table')[0];
 
         var newRow = table.insertRow(table.rows.length);
-        newRow.setAttribute("id", "tr_"+i);
+        newRow.setAttribute("id", "tr_" + i);
 
         var cel1 = newRow.insertCell(0);
         var cel2 = newRow.insertCell(1);
@@ -70,44 +67,25 @@ $(document).ready(function () {
         cel11.append(btnEditar);
         cel12.append(btnExcluir);
 
-        if (i != 0) {
-            var a = i;
-            for (a > 0; a == i; a++) {
+        // if (i != 0) {
+        //     var a = i;
+        //     for (a > 0; a == i; a++) {
 
-                $('#table > thead  > tr:not(:has(th))').each(function (e) {
-                    var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
-                    $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
-                    //console.log(customerId);
-                });
-            }
+        //         $('#table > thead  > tr:not(:has(th))').each(function (e) {
+        //             var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
+        //             $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
+        //             console.log(customerId);
+        //         });
+        //     }
 
-        }
+        // }
 
         i++;
 
-        // document.getElementById("btnExcluir").addEventListener("click", function () {
-
-        //     $('#table > thead  > tr:not(:has(th))').each(function (e) {
-
-        //         // $(this).find("td").eq(6).html;
-        //         $(this).find("td").parent().remove(); //Deleting TD element
-        //      //   $(this).remove();
-          
-        //         i = 0;
-        //         a = 0;
-        //         auxTotal = 0;
-      
-        //     });
-        // });
-
-        //console.log("valor uax: " + auxTotal);
     });
 });
 
-$(document).on('click', '.excluir', function(event) {
-      $("#tr_"+ $(this).attr("data-id")).remove();
-});
-
+//calcula o Total Líquido Cadastro de Nota
 $(document).ready(function () {
     document.getElementById("btnCalc").addEventListener("click", function () {
 
@@ -123,6 +101,40 @@ $(document).ready(function () {
 
     });
 });
+
+//deleta lançamento negocios realizados e recalcula os outros lançamentos
+$(document).on('click', '.excluir', function (event) {
+
+    auxTotal = auxTotal - $("#tr_" + $(this).attr("data-id")).find("td").eq(5).html();
+
+    $("#tr_" + $(this).attr("data-id")).remove();
+
+    var vTxLiquidacao = document.getElementById('txLiquidacao').value;
+    // auxTotal = auxTotal - 1;
+
+    $('#table > thead  > tr:not(:has(th))').each(function (e) {
+        var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
+        $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
+    });
+    console.log(auxTotal);
+});
+
+var a = 1;
+$(document).on('click', '.btnAddRow', function (event) {
+    //  if (i != 0) {
+
+    for (a > 1; a == i; a++) {
+        var vTxLiquidacao = document.getElementById('txLiquidacao').value;
+        var table = document.getElementsByTagName('table');
+        $('#table > thead  > tr:not(:has(th))').each(function (e) {
+            var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
+            $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
+        });
+        console.log(auxTotal);
+    }
+});
+
+
 
 
 
