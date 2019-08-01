@@ -8,8 +8,7 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
@@ -56,8 +55,7 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">Menu</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-            aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar">teste</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -80,18 +78,11 @@
       </nav>
       <!-- End Navbar -->
 
-
-
       <div class="content">
         <div class="container-fluid">
 
-
-
-
-
           <div class="card">
             <div class="card-body">
-
 
               <form>
                 <div class="form-row">
@@ -116,21 +107,21 @@
                 </div>
               </form>
 
-
-
-
-
-
               <!-- Tabela -->
               <div>
                 <table class="table">
                   <thead class=" text-primary">
                     <tr>
-                      <th scope="col">Corretora</th>
-                      <th scope="col">CNPJ</th>
-                      <th scope="col">Banco</th>
-                      <th scope="col">Agencia</th>
-                      <th scope="col">Conta</th>
+                      <th scope="col">Número Nota</th>
+                      <th scope="col">Data</th>
+                      <th scope="col">Compra</th>
+                      <th scope="col">Venda</th>
+                      <th scope="col">Liquidacao</th>
+                      <th scope="col">Registro</th>
+                      <th scope="col">Emolumento</th>
+                      <th scope="col">IRRF</th>
+                      <th scope="col">Total Líquido</th>
+
                       <th scope="col" style="text-align: right">Editar</th>
                       <th scope="col" style="text-align: left">Excluir</th>
                     </tr>
@@ -138,45 +129,49 @@
 
                   <tbody class="tableTr">
                     <tr></tr>
-
                   </tbody>
 
-
                   <?php
-  
-                    include 'conexao.php';
-  
-                    $sql = "SELECT * FROM `corretora`";
-                    $busca = mysqli_query($conexao, $sql);
-  
-                    while ($array = mysqli_fetch_array($busca)) {
-                      $corretora_id = $array['corretora_id'];
-                      $nome = $array['nome'];
-                      $cnpj = $array['cnpj'];
-                      $banco = $array['banco'];
-                      $agencia = $array['agencia'];
-                      $conta = $array['conta'];
-  
-                      ?>
-                  <tr class="tableTr">
 
-                    <td><?php echo $nome ?></td>
-                    <td><?php echo $cnpj ?></td>
-                    <td><?php echo $banco ?></td>
-                    <td><?php echo $agencia ?></td>
-                    <td><?php echo $conta ?></td>
+                  include 'conexao.php';
 
-                    <td style="text-align: right"><a class="btn btn-warning btn-sm" style="color:#fff"
-                        href="editar_corretora.php?id=<?php echo $corretora_id ?>" role="button"
-                        style="text-align: right">!</a></td>
-                    <td style="text-align: left"> <a class="btn btn-danger btn-sm" style="color:#fff"
-                        href="_deletar_codcorretora.php?id=<?php echo $corretora_id ?>" role="button">X</a></td>
+                  $sql = "SELECT * FROM `nota`";
+                  $busca = mysqli_query($conexao, $sql);
 
-                  </tr>
+                  while ($array = mysqli_fetch_array($busca)) {
+                    $nota_id = $array['nota_id'];
+                    $numero = $array['numero'];
+                    $data = $array['data'];
+                    $compra = $array['compra'];
+                    $venda = $array['venda'];
+                    $liquidacao = $array['liquidacao'];
+                    $registro = $array['registro'];
+                    $emolumento = $array['emolumento'];
+                    $ir = $array['ir'];
+                    $total = $array['total'];
+
+                    ?>
+
+                    <tr class="tableTr">
+
+                      <td style="color: orange"><?php echo $numero ?></td>
+                      <td><?php echo $data ?></td>
+                      <td><?php echo $compra ?></td>
+                      <td><?php echo $venda ?></td>
+                      <td><?php echo $liquidacao ?></td>
+                      <td><?php echo $registro ?></td>
+                      <td><?php echo $emolumento ?></td>
+                      <td><?php echo $ir ?></td>
+                      <td><?php echo $total ?></td>
+
+                      <td style="text-align: right"><a class="btn btn-warning btn-sm" style="color:#fff" href="editar_corretora.php?id=<?php echo $corretora_id ?>" role="button" style="text-align: right">!</a></td>
+                      <td style="text-align: left"> <a class="btn btn-danger btn-sm" style="color:#fff" href="_deletar_codcorretora.php?id=<?php echo $corretora_id ?>" role="button">X</a></td>
+
+                    </tr>
 
 
+                </div>
               </div>
-            </div>
 
 
             <?php   } ?>
@@ -201,19 +196,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
   </div>
   <!--   Core JS Files   -->
@@ -233,8 +215,8 @@
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="./assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function () {
-      $().ready(function () {
+    $(document).ready(function() {
+      $().ready(function() {
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -245,7 +227,7 @@
 
         window_width = $(window).width();
 
-        $('.fixed-plugin a').click(function (event) {
+        $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
@@ -256,7 +238,7 @@
           }
         });
 
-        $('.fixed-plugin .active-color span').click(function () {
+        $('.fixed-plugin .active-color span').click(function() {
           $full_page_background = $('.full-page-background');
 
           $(this).siblings().removeClass('active');
@@ -277,7 +259,7 @@
           }
         });
 
-        $('.fixed-plugin .background-color .badge').click(function () {
+        $('.fixed-plugin .background-color .badge').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
 
@@ -288,7 +270,7 @@
           }
         });
 
-        $('.fixed-plugin .img-holder').click(function () {
+        $('.fixed-plugin .img-holder').click(function() {
           $full_page_background = $('.full-page-background');
 
           $(this).parent('li').siblings().removeClass('active');
@@ -298,7 +280,7 @@
           var new_image = $(this).find("img").attr('src');
 
           if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function () {
+            $sidebar_img_container.fadeOut('fast', function() {
               $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
               $sidebar_img_container.fadeIn('fast');
             });
@@ -307,7 +289,7 @@
           if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
             var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-            $full_page_background.fadeOut('fast', function () {
+            $full_page_background.fadeOut('fast', function() {
               $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
               $full_page_background.fadeIn('fast');
             });
@@ -326,7 +308,7 @@
           }
         });
 
-        $('.switch-sidebar-image input').change(function () {
+        $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');
 
           $input = $(this);
@@ -358,7 +340,7 @@
           }
         });
 
-        $('.switch-sidebar-mini input').change(function () {
+        $('.switch-sidebar-mini input').change(function() {
           $body = $('body');
 
           $input = $(this);
@@ -373,7 +355,7 @@
 
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').addClass('sidebar-mini');
 
               md.misc.sidebar_mini_active = true;
@@ -381,12 +363,12 @@
           }
 
           // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function () {
+          var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
           }, 180);
 
           // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function () {
+          setTimeout(function() {
             clearInterval(simulateWindowResize);
           }, 1000);
 
