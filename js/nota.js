@@ -6,13 +6,17 @@ $(document).ready(function () {
     document.getElementById("btnAddRow").addEventListener('click', function () {
 
         //Criar botões
+
+        //Botão Editar
         var btnEditar = document.createElement("button");
         var edit = document.createTextNode("!");
         btnEditar.appendChild(edit);
         btnEditar.setAttribute("style", "float: right");
         btnEditar.setAttribute("id", "btnEditar");
-        btnEditar.setAttribute("class", "btn btn-warning btn-sm");
+        btnEditar.setAttribute("class", "btn btn-warning btn-sm btnEditar");
+        btnEditar.setAttribute("data-id", i); // OI??
 
+        //Botão Excluir
         var btnExcluir = document.createElement("button");
         var exc = document.createTextNode("X");
         btnExcluir.appendChild(exc);
@@ -132,6 +136,51 @@ $(document).on('click', '.btnAddRow', function (event) {
         });
         console.log(auxTotal);
     }
+});
+
+
+$(document).on('click', '.btnEditar', function (event) {
+
+    document.getElementById('operacao').value = $("#tr_" + $(this).attr("data-id")).find("td").eq(0).html();
+    document.getElementById('ticker').value = $("#tr_" + $(this).attr("data-id")).find("td").eq(1).html();
+    document.getElementById('papel').value = $("#tr_" + $(this).attr("data-id")).find("td").eq(2).html();
+    document.getElementById('qtd').value = $("#tr_" + $(this).attr("data-id")).find("td").eq(3).html();
+    document.getElementById('pu').value = $("#tr_" + $(this).attr("data-id")).find("td").eq(4).html();
+    //document.getElementById('txLiquidacao').value  = $("#tr_" + $(this).attr("data-id")).find("td").eq(5).html();
+    //document.getElementById('txRegistro').value  = $("#tr_" + $(this).attr("data-id")).find("td").eq(6).html();
+    //document.getElementById('txEmolumento').value  = $("#tr_" + $(this).attr("data-id")).find("td").eq(7).html();
+    //document.getElementById('ir').value  = $("#tr_" + $(this).attr("data-id")).find("td").eq(8).html();
+
+    //remover item
+    auxTotal = auxTotal - $("#tr_" + $(this).attr("data-id")).find("td").eq(5).html();
+
+    $("#tr_" + $(this).attr("data-id")).remove();
+
+    var vTxLiquidacao = document.getElementById('txLiquidacao').value;
+    $('#table > thead  > tr:not(:has(th))').each(function (e) {
+        var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
+        $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
+    });
+
+
+    console.log(auxTotal);
+
+
+    // auxTotal = auxTotal - $("#tr_" + $(this).attr("data-id")).find("td").eq(5).html();
+
+    // $("#tr_" + $(this).attr("data-id")).remove();
+
+    // var vTxLiquidacao = document.getElementById('txLiquidacao').value;
+    // // auxTotal = auxTotal - 1;
+
+    // $('#table > thead  > tr:not(:has(th))').each(function (e) {
+    //   //  var customerId = vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html();
+    //     $(this).find("td").eq(6).html(vTxLiquidacao / auxTotal * $(this).find("td").eq(5).html());
+
+
+    //  });
+
+
 });
 
 
