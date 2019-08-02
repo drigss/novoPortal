@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <title>Cadastro de Corretoras</title>
@@ -198,7 +198,7 @@
                     <td><?php echo $conta ?></td>
 
                     <td style="text-align: right"><a class="btn btn-warning btn-sm" style="color:#fff"
-                        href="editar_corretora.php?id=<?php echo $corretora_id ?>" role="button"
+                        href="_editar_corretora.php?id=<?php echo $corretora_id ?>" role="button"
                         style="text-align: right">!</a></td>
                     <td style="text-align: left"> <a class="btn btn-danger btn-sm" style="color:#fff"
                         href="_deletar_codcorretora.php?id=<?php echo $corretora_id ?>" role="button">X</a></td>

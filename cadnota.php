@@ -2,14 +2,13 @@
 <html lang="pt-br">
 
 <head>
-  <title>Oi, :)</title>
+  <title>Nota Corretagem</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
@@ -61,8 +60,7 @@
             <a class="navbar-brand" href="javascript:void(0)">teste</a>
           </div>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-            aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -98,48 +96,60 @@
               <form action="_inserir_cadnota.php" method="post" style="margin: 20px 20px 0px 20px">
 
                 <div class="row">
+
+                  <div class="col-md-4">
+                    <label>Operação</label>
+                    <select class="form-control" style="color: orange" name="corretora" id="corretora">
+                      <?php
+                      include 'conexao.php';
+
+                      $sql = "SELECT * FROM `corretora`";
+                      $busca = mysqli_query($conexao, $sql);
+
+                      while ($array = mysqli_fetch_array($busca)) {
+                        $nome_corretora = $array['nome'];
+                        ?>
+
+                      
+                      <option><?php echo $nome_corretora ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+
                   <div class="col-md-4">
                     <label>Número da Nota</label>
-                    <input type="text" class="form-control" name="nNota" id="nNota"
-                      placeholder="Valor Total das Compras" value="33333333" autocomplete="off">
+                    <input type="text" class="form-control" name="nNota" id="nNota" placeholder="Valor Total das Compras" value="33333333" autocomplete="off">
                   </div>
                   <div class="col-md-4">
                     <label>Data da Nota</label>
-                    <input type="date" class="form-control" name="dtNota" id="dtNota"
-                      placeholder="Valor Total das Compras" autocomplete="off">
+                    <input type="date" class="form-control" name="dtNota" id="dtNota" placeholder="Valor Total das Compras" autocomplete="off">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-2">
                     <label>Total Compras</label>
-                    <input type="text" class="form-control" name="tCompra" id="tCompra"
-                      placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
+                    <input type="text" class="form-control" name="tCompra" id="tCompra" placeholder="Valor Total das Compras" value="94.00" autocomplete="off">
                   </div>
                   <div class="col-md-2">
                     <label>Total Vendas</label>
-                    <input type="text" class="form-control" name="tVenda" id="tVenda"
-                      placeholder="Valor Total das Vendas" value="111.00" autocomplete="off">
+                    <input type="text" class="form-control" name="tVenda" id="tVenda" placeholder="Valor Total das Vendas" value="111.00" autocomplete="off">
                   </div>
                   <div class="col-md-2">
                     <label>Liquidação</label>
-                    <input type="text" class="form-control" name="txLiquidacao" id="txLiquidacao"
-                      placeholder="Valor da Taxa de Liquidação" value="0.05" autocomplete="off">
+                    <input type="text" class="form-control" name="txLiquidacao" id="txLiquidacao" placeholder="Valor da Taxa de Liquidação" value="0.05" autocomplete="off">
                   </div>
                   <div class="col-md-2">
                     <label>Registro</label>
-                    <input type="text" class="form-control" name="txRegistro" id="txRegistro"
-                      placeholder="Valor da Taxa de Registro" value="0.04" autocomplete="off">
+                    <input type="text" class="form-control" name="txRegistro" id="txRegistro" placeholder="Valor da Taxa de Registro" value="0.04" autocomplete="off">
                   </div>
                   <div class="col-md-2">
                     <label>Emolumento</label>
-                    <input type="text" class="form-control" name="txEmolumento" id="txEmolumento"
-                      placeholder="Valor do Emolumento" value="0.07" autocomplete="off">
+                    <input type="text" class="form-control" name="txEmolumento" id="txEmolumento" placeholder="Valor do Emolumento" value="0.07" autocomplete="off">
                   </div>
                   <div class="col-md-2">
                     <label>IR</label>
-                    <input type="text" class="form-control" name="ir" id="ir" placeholder="Valor do I.R.R.F." value="3"
-                      autocomplete="off">
+                    <input type="text" class="form-control" name="ir" id="ir" placeholder="Valor do I.R.R.F." value="3" autocomplete="off">
                   </div>
                 </div>
                 <div class="col" style="margin: 20px 0 40px 20px">
@@ -186,8 +196,7 @@
 
                   <div class="col-md-2">
                     <label>Ticker</label>
-                    <input type="text" class="form-control" name="ticker" id="ticker" placeholder="Digite o Ticker"
-                      autocomplete="off">
+                    <input type="text" class="form-control" name="ticker" id="ticker" placeholder="Digite o Ticker" autocomplete="off">
                   </div>
 
                   <div class="col-md-2">
@@ -202,14 +211,12 @@
 
                   <div class="col-md-2">
                     <label>QTD</label>
-                    <input type="number" class="form-control" name="qtd" id="qtd" placeholder="Digite a quantidade"
-                      value="100" autocomplete="off">
+                    <input type="number" class="form-control" name="qtd" id="qtd" placeholder="Digite a quantidade" value="100" autocomplete="off">
                   </div>
 
                   <div class="col-md-2">
                     <label>PU</label>
-                    <input type="text" class="form-control" name="pu" id="pu" placeholder="Digite o preço unitário"
-                      value="1.11" autocomplete="off">
+                    <input type="text" class="form-control" name="pu" id="pu" placeholder="Digite o preço unitário" value="1.11" autocomplete="off">
                   </div>
 
                   <div class="col1">
@@ -310,8 +317,8 @@
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="./assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function () {
-      $().ready(function () {
+    $(document).ready(function() {
+      $().ready(function() {
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -322,7 +329,7 @@
 
         window_width = $(window).width();
 
-        $('.fixed-plugin a').click(function (event) {
+        $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
@@ -333,7 +340,7 @@
           }
         });
 
-        $('.fixed-plugin .active-color span').click(function () {
+        $('.fixed-plugin .active-color span').click(function() {
           $full_page_background = $('.full-page-background');
 
           $(this).siblings().removeClass('active');
@@ -354,7 +361,7 @@
           }
         });
 
-        $('.fixed-plugin .background-color .badge').click(function () {
+        $('.fixed-plugin .background-color .badge').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
 
@@ -365,7 +372,7 @@
           }
         });
 
-        $('.fixed-plugin .img-holder').click(function () {
+        $('.fixed-plugin .img-holder').click(function() {
           $full_page_background = $('.full-page-background');
 
           $(this).parent('li').siblings().removeClass('active');
@@ -375,7 +382,7 @@
           var new_image = $(this).find("img").attr('src');
 
           if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function () {
+            $sidebar_img_container.fadeOut('fast', function() {
               $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
               $sidebar_img_container.fadeIn('fast');
             });
@@ -384,7 +391,7 @@
           if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
             var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-            $full_page_background.fadeOut('fast', function () {
+            $full_page_background.fadeOut('fast', function() {
               $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
               $full_page_background.fadeIn('fast');
             });
@@ -403,7 +410,7 @@
           }
         });
 
-        $('.switch-sidebar-image input').change(function () {
+        $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');
 
           $input = $(this);
@@ -435,7 +442,7 @@
           }
         });
 
-        $('.switch-sidebar-mini input').change(function () {
+        $('.switch-sidebar-mini input').change(function() {
           $body = $('body');
 
           $input = $(this);
@@ -450,7 +457,7 @@
 
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').addClass('sidebar-mini');
 
               md.misc.sidebar_mini_active = true;
@@ -458,12 +465,12 @@
           }
 
           // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function () {
+          var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
           }, 180);
 
           // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function () {
+          setTimeout(function() {
             clearInterval(simulateWindowResize);
           }, 1000);
 

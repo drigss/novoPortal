@@ -2,6 +2,7 @@
 
 include 'conexao.php';
 
+     $corretora = $_POST['corretora'];
      $nNota = $_POST['nNota'];
      $dtNota = $_POST['dtNota'];
      $tCompra = $_POST['tCompra'];
@@ -12,13 +13,13 @@ include 'conexao.php';
      $ir = $_POST['ir'];
      $tLiquido = $_POST['tLiquido'];
 
-$sql = "INSERT INTO `nota`(`numero`,`data`,`compra`,`venda`,`liquidacao`,`registro`,`emolumento`,`ir`,`total`)
-VALUES('$nNota','$dtNota','$tCompra','$tVenda','$txLiquidacao','$txRegistro','$txEmolumento','$ir','$tLiquido')";
+$sql = "INSERT INTO `nota`(`corretora`,`numero`,`data`,`compra`,`venda`,`liquidacao`,`registro`,`emolumento`,`ir`,`total`)
+VALUES('$corretora','$nNota','$dtNota','$tCompra','$tVenda','$txLiquidacao','$txRegistro','$txEmolumento','$ir','$tLiquido')";
 
 
 
 $inserir = mysqli_query($conexao, $sql);
 
-header("Location: cadnota.html");
+header("Location: cadnota.php");
 exit;
 ?>
